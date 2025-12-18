@@ -58,6 +58,7 @@ def update_gallery():
                     meta = json.loads(meta_path.read_text(encoding="utf-8"))
                     title = meta.get("title", date)
                     
+                    # GitHub Pages 路径需要包含仓库名
                     img_url = f"../wallpapers/{source_name}/{date}/{image_file}"
                     thumb_url = f"../wallpapers/{source_name}/{date}/thumb.jpg"
                     story_url = f"../wallpapers/{source_name}/{date}/story.md" if story_path.exists() else None
