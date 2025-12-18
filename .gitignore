@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Agent
+.agent/
+antigravity/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project
+wallpapers/*/bing.jpg
+wallpapers/*/thumb.jpg
+!wallpapers/**/meta.json
