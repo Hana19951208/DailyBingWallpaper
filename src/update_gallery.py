@@ -58,10 +58,11 @@ def update_gallery():
                     meta = json.loads(meta_path.read_text(encoding="utf-8"))
                     title = meta.get("title", date)
                     
-                    # GitHub Pages 路径需要包含仓库名
-                    img_url = f"../wallpapers/{source_name}/{date}/{image_file}"
-                    thumb_url = f"../wallpapers/{source_name}/{date}/thumb.jpg"
-                    story_url = f"../wallpapers/{source_name}/{date}/story.md" if story_path.exists() else None
+                    # GitHub Pages 路径：从 docs/ 目录访问同级的 wallpapers/
+                    # 使用 ./ 而不是 ../ 因为 GitHub Pages 会将 docs/ 作为根目录
+                    img_url = f"./wallpapers/{source_name}/{date}/{image_file}"
+                    thumb_url = f"./wallpapers/{source_name}/{date}/thumb.jpg"
+                    story_url = f"./wallpapers/{source_name}/{date}/story.md" if story_path.exists() else None
                     
                     all_wallpapers.append({
                         "date": date,
