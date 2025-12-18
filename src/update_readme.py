@@ -1,91 +1,133 @@
 #!/usr/bin/env python3
 """
 更新 README.md 中的壁纸索引
-使用更精美的 HTML 表格布局 (自适应 1 或 2 列)
+支持多数据源、路径修复、数量限制
 """
 
 import re
 import json
+import sys
 from pathlib import Path
+from collections import defaultdict
+
+# 添加项目根目录到路径
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from src.config_loader import get_enabled_sources, get_display_config
 
 
 def update_readme():
     """更新 README.md 中 WALLPAPER_INDEX 锚点区域的内容"""
-    base = Path("wallpapers")
     readme_path = Path("README.md")
-
-    # 获取所有日期目录，按日期倒序排列
-    dates = sorted(
-        [p.name for p in base.iterdir() if p.is_dir()],
-        reverse=True
-    )
-
-    if not dates:
+    wallpapers_base = Path("wallpapers")
+    
+    # 获取配置
+    enabled_sources = get_enabled_sources()
+    display_config = get_display_config()
+    max_items = display_config.get("max_items_per_source", 10)
+    
+    if not enabled_sources:
+        print("[WARN] 没有启用的壁纸源")
         return
-
-    # 如果只有一张图，使用一行展示一个。如果有两张或更多，每行展示两个。
-    columns = 2 if len(dates) > 1 else 1
     
-    html_output = ['<table width="100%">']
+    # 按日期聚合所有源的壁纸
+    date_wallpapers = defaultdict(dict)  # {date: {source_name: {meta, paths}}}
     
-    # 将日期按 columns 分组
-    chunks = [dates[i:i + columns] for i in range(0, len(dates), columns)]
-    
-    for chunk in chunks:
-        html_output.append('<tr>')
-        for d in chunk:
-            thumb = f"wallpapers/{d}/thumb.jpg"
-            img_url = f"wallpapers/{d}/bing.jpg"
+    for source in enabled_sources:
+        source_name = source["name"]
+        source_dir = wallpapers_base / source_name
+        
+        if not source_dir.exists():
+            continue
             
-            # 尝试读取元数据获取标题
-            title = d
-            meta_path = base / d / "meta.json"
-            if meta_path.exists():
+        # 获取该源的所有日期目录
+        dates = sorted(
+            [p.name for p in source_dir.iterdir() if p.is_dir()],
+            reverse=True
+        )
+        
+        for date in dates:
+            date_dir = source_dir / date
+            meta_path = date_dir / "meta.json"
+            thumb_path = date_dir / "thumb.jpg"
+            image_path = date_dir / "image.jpg"
+            story_path = date_dir / "story.md"
+            
+            if meta_path.exists() and thumb_path.exists():
                 try:
                     meta = json.loads(meta_path.read_text(encoding="utf-8"))
-                    title = meta.get("title", d)
+                    date_wallpapers[date][source_name] = {
+                        "meta": meta,
+                        "thumb": f"wallpapers/{source_name}/{date}/thumb.jpg",
+                        "image": f"wallpapers/{source_name}/{date}/image.jpg",
+                        "story": f"wallpapers/{source_name}/{date}/story.md" if story_path.exists() else None,
+                        "display_name": source.get("display_name", source_name)
+                    }
                 except:
                     pass
+    
+    # 排序并限制数量
+    sorted_dates = sorted(date_wallpapers.keys(), reverse=True)[:max_items]
+    
+    if not sorted_dates:
+        print("[WARN] 没有找到任何壁纸")
+        return
+    
+    # 生成 HTML 表格（日期为行，源为列）
+    html_output = ['<table width="100%">']
+    
+    # 添加表头
+    header_row = '<tr><th width="15%">日期</th>'
+    for source in enabled_sources:
+        col_width = f"{85 // len(enabled_sources)}%"
+        header_row += f'<th width="{col_width}">{source.get("display_name", source["name"])}</th>'
+    header_row += '</tr>'
+    html_output.append(header_row)
+    
+    # 生成每一行
+    for date in sorted_dates:
+        html_output.append('<tr>')
+        
+        # 日期列
+        html_output.append(f'<td align="center"><b>{date}</b></td>')
+        
+        # 每个源的列
+        for source in enabled_sources:
+            source_name = source["name"]
             
-            # 标题链接：如果有 story.md 则链接到它，否则无链接
-            story_path = base / d / "story.md"
-            title_display = f'<b>{d}</b><br /><small>{title}</small>'
-            if story_path.exists():
-                # 使用 ../wallpapers/.. 相对路径可能在预览时不工作，但在 GitHub 仓库视图中通常是 OK 的
-                # 为了兼容性，在 README 中我们通常相对于 README 所在位置引用，即 wallpapers/2025-xx-xx/story.md
-                # 如果用户反映不跳转，可能是因为 GitHub 不允许非 markdown 扩展名的跳转？不，story.md 是 markdown。
-                # 还有一种可能是 HTML 里面的 <a> 标签行为。
-                # 尝试使用 GitHub 绝对路径风格？不，通用性差。
-                # 重新确认逻辑，确保路径正确。
-                title_link = f"wallpapers/{d}/story.md"
-                title_display = f'<a href="{title_link}"><b>{d}</b><br /><small>{title} 📖</small></a>'
+            if source_name in date_wallpapers[date]:
+                data = date_wallpapers[date][source_name]
+                title = data["meta"].get("title", date)
+                thumb = data["thumb"]
+                image = data["image"]
+                story = data["story"]
+                
+                # 标题链接
+                if story:
+                    title_html = f'<a href="{story}"><small>{title} 📖</small></a>'
+                else:
+                    title_html = f'<small>{title}</small>'
+                
+                cell_content = f'<td align="center" valign="top"><a href="{image}"><img src="{thumb}" width="100%" style="border-radius:10px;"></a><br />{title_html}</td>'
+            else:
+                # 该源在这一天没有壁纸
+                cell_content = '<td align="center" valign="top"><small>-</small></td>'
             
-            cell_width = "100%" if columns == 1 else "50%"
-            # 关键：不要在前缀留空格，否则 GitHub 会认为这是代码块
-            cell_content = f'<td width="{cell_width}" align="center" valign="top"><a href="{img_url}"><img src="{thumb}" width="100%" style="border-radius:10px;"></a><br />{title_display}</td>'
             html_output.append(cell_content)
         
-        if columns == 2 and len(chunk) < 2:
-            html_output.append('<td width="50%"></td>')
-            
         html_output.append('</tr>')
     
     html_output.append('</table>')
-
+    
     index_block = "\n".join(html_output)
-
-    # 读取 README
+    
+    # 读取并更新 README
     readme_content = readme_path.read_text(encoding="utf-8")
-
-    # 使用正则替换锚点之间的内容
     pattern = r"(<!-- WALLPAPER_INDEX_START -->)[\s\S]*?(<!-- WALLPAPER_INDEX_END -->)"
     replacement = f"\\1\n{index_block}\n\\2"
-
     new_content = re.sub(pattern, replacement, readme_content)
-
     readme_path.write_text(new_content, encoding="utf-8")
 
 
 if __name__ == "__main__":
     update_readme()
-    print("[OK] README.md 已更新 (精美表格模式)")
+    print("[OK] README.md 已更新 (多源模式)")

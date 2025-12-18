@@ -1,6 +1,6 @@
-# 📸 Daily Bing Wallpaper Archive
+# 📅 DailyWallpaperHub
 
-> 自动采集必应 (Bing) 每日高清壁纸，支持 GitHub Actions 自动化归档、在线画廊展示与企业微信机器人提醒。
+> 多源壁纸聚合平台 · 自动归档 Bing + Unsplash 精选壁纸 · AI 视觉故事生成 · 企业微信推送 · GitHub Pages 在线画廊
 
 [![Daily Update](https://github.com/Hana19951208/DailyBingWallpaper/actions/workflows/daily.yml/badge.svg)](https://github.com/Hana19951208/DailyBingWallpaper/actions/workflows/daily.yml)
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-Online-brightgreen)](https://Hana19951208.github.io/DailyBingWallpaper/)
@@ -9,12 +9,17 @@
 
 ## ✨ 项目特性
 
-- **自动化**: 利用 GitHub Actions 每小时自动检测更新。
-- **AI 故事**: 集成 LLM 视觉大模型，自动为壁纸生成精美的地理文化背景故事。
-- **持久化**: 高清原图、缩略图及元数据 (JSON) 自动提交至仓库，永不丢失。
-- **现代化展示**: 内置 GitHub Pages 在线画廊，支持响应式布局与暗黑模式。
-- **多端推送**: 集成企业微信群机器人，消息样式精美。
-- **零成本**: 完全基于 GitHub 免费资源构建。
+- **🎨 多源聚合**: 支持 Bing、Unsplash 等多个壁纸源，配置化管理，易于扩展新数据源
+- **⚡️ 异步架构**: AI 故事生成异步处理，主流程快速完成，图片立即可用
+- **🤖 AI 视觉故事**: 集成 LLM 视觉大模型，自动为每张壁纸生成精美的地理文化背景故事（约 500 字）
+- **📝 提示词外部化**: AI 提示词存储在 `prompts/story_prompt.txt`，可随时自定义优化
+- **⏰ 智能调度**: GitHub Actions 每小时自动检测更新，第一时间获取最新壁纸
+- **💾 持久化归档**: 高清原图、缩略图、元数据 (JSON) 及 AI 故事自动提交至仓库，永不丢失
+- **🎭 现代化展示**: 内置 GitHub Pages 在线画廊，支持响应式布局与暗黑模式
+- **📱 企业微信推送**: 自动推送图片、元数据和 AI 故事到企业微信群（支持 Markdown 格式）
+- **🎯 数量限制**: 索引默认只展示最近 10 天，避免页面过长（可在 `config/sources.yaml` 中调整）
+- **🛠 批量工具**: 支持按日期和源批量抓取历史壁纸
+- **💰 零成本**: 完全基于 GitHub 免费资源构建
 
 ---
 
@@ -33,40 +38,212 @@
 
 <!-- WALLPAPER_INDEX_START -->
 <table width="100%">
+<tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-17/bing.jpg"><img src="wallpapers/2025-12-17/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-17</b><br /><small>犹他州的时光层叠</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-16/bing.jpg"><img src="wallpapers/2025-12-16/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-16</b><br /><small>皮毛、霜冻和盛宴</small></td>
+<td align="center"><b>2025-12-18</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-18/image.jpg"><img src="wallpapers/unsplash/2025-12-18/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-18/story.md"><small>a view of the mountains from the top of a hill 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-15/bing.jpg"><img src="wallpapers/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-15</b><br /><small>小帽子，大能量</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-14/bing.jpg"><img src="wallpapers/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-14</b><br /><small>静谧水波，闪耀灯影</small></td>
+<td align="center"><b>2025-12-17</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-17/image.jpg"><img src="wallpapers/bing/2025-12-17/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-17/story.md"><small>犹他州的时光层叠 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-17/image.jpg"><img src="wallpapers/unsplash/2025-12-17/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-17/story.md"><small>a lush green hillside covered in lots of moss 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-13/bing.jpg"><img src="wallpapers/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-13</b><br /><small>假日鸟类大比拼</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-12/bing.jpg"><img src="wallpapers/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-12</b><br /><small>冰封的倒影</small></td>
+<td align="center"><b>2025-12-16</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-16/image.jpg"><img src="wallpapers/bing/2025-12-16/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-16/story.md"><small>皮毛、霜冻和盛宴 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-16/image.jpg"><img src="wallpapers/unsplash/2025-12-16/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-16/story.md"><small>Vista panoramica 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-11/bing.jpg"><img src="wallpapers/2025-12-11/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-11</b><br /><small>点亮节日的红色植物</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-10/bing.jpg"><img src="wallpapers/2025-12-10/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-10</b><br /><small>天地相接之处</small></td>
+<td align="center"><b>2025-12-15</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-15/image.jpg"><img src="wallpapers/bing/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-15/story.md"><small>小帽子，大能量 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-15/image.jpg"><img src="wallpapers/unsplash/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-15/story.md"><small>a rock in the middle of a body of water 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-09/bing.jpg"><img src="wallpapers/2025-12-09/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-09</b><br /><small>文化交汇之地</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-08/bing.jpg"><img src="wallpapers/2025-12-08/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-08</b><br /><small>说“茄子”……或者“青草”</small></td>
+<td align="center"><b>2025-12-14</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-14/image.jpg"><img src="wallpapers/bing/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-14/story.md"><small>静谧水波，闪耀灯影 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-14/image.jpg"><img src="wallpapers/unsplash/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-14/story.md"><small>brown mountains under white clouds during daytime 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-07/bing.jpg"><img src="wallpapers/2025-12-07/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-07</b><br /><small>一切安详，一切明亮</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-06/bing.jpg"><img src="wallpapers/2025-12-06/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-06</b><br /><small>雪落下的声音</small></td>
+<td align="center"><b>2025-12-13</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-13/image.jpg"><img src="wallpapers/bing/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-13/story.md"><small>假日鸟类大比拼 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-13/image.jpg"><img src="wallpapers/unsplash/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-13/story.md"><small>We could take a 5-minute walk from our Airbnb to visit the Banasura Sagar lake. It was a routine on most evenings. And during sunset, along with the mist, the mountains, and calm water, it would form the most beautiful and picturesque moment.  📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-05/bing.jpg"><img src="wallpapers/2025-12-05/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-05</b><br /><small>佛罗里达州的生命湿地</small></td>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-04/bing.jpg"><img src="wallpapers/2025-12-04/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-04</b><br /><small>绘制星图的城市</small></td>
+<td align="center"><b>2025-12-12</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-12/image.jpg"><img src="wallpapers/bing/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-12/story.md"><small>冰封的倒影 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-12/image.jpg"><img src="wallpapers/unsplash/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-12/story.md"><small>a field with tall grass and trees in the background 📖</small></a></td>
 </tr>
 <tr>
-<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-03/bing.jpg"><img src="wallpapers/2025-12-03/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-03</b><br /><small>为生存而疾驰</small></td>
-<td width="50%"></td>
+<td align="center"><b>2025-12-11</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-11/image.jpg"><img src="wallpapers/bing/2025-12-11/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-11/story.md"><small>点亮节日的红色植物 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-11/image.jpg"><img src="wallpapers/unsplash/2025-12-11/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-11/story.md"><small>a large waterfall with water pouring out of it 📖</small></a></td>
+</tr>
+<tr>
+<td align="center"><b>2025-12-10</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-10/image.jpg"><img src="wallpapers/bing/2025-12-10/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-10/story.md"><small>天地相接之处 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-10/image.jpg"><img src="wallpapers/unsplash/2025-12-10/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-10/story.md"><small>a river running through a valley surrounded by mountains 📖</small></a></td>
+</tr>
+<tr>
+<td align="center"><b>2025-12-09</b></td>
+<td align="center" valign="top"><a href="wallpapers/bing/2025-12-09/image.jpg"><img src="wallpapers/bing/2025-12-09/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/bing/2025-12-09/story.md"><small>文化交汇之地 📖</small></a></td>
+<td align="center" valign="top"><a href="wallpapers/unsplash/2025-12-09/image.jpg"><img src="wallpapers/unsplash/2025-12-09/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="wallpapers/unsplash/2025-12-09/story.md"><small>a small island in the middle of a lake 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
+
+---
+
+## 🚀 快速开始
+
+### 本地开发
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/Hana19951208/DailyBingWallpaper.git
+cd DailyBingWallpaper
+
+# 2. 安装依赖（使用 conda 环境）
+conda activate base
+pip install -r requirements.txt
+
+# 3. 配置环境变量
+cp .env.example .env
+# 编辑 .env 文件，填入以下配置：
+# WEWORK_WEBHOOK=your_webhook_url
+# LLM_API_KEY=your_api_key
+# LLM_BASE_URL=https://api.openai.com/v1
+# LLM_MODEL_NAME=gpt-4o
+# UNSPLASH_ACCESS_KEY=your_unsplash_key
+
+# 4. 快速抓取壁纸（跳过故事生成）
+python fetch_bing_wallpaper.py --skip-story
+python fetch_unsplash_wallpaper.py --skip-story
+
+# 5. 异步生成故事（后台运行）
+python scripts/generate_missing_stories.py
+
+# 6. 批量抓取历史壁纸
+python batch_fetch.py bing 2025-12        # 抓取 Bing 整月
+python batch_fetch.py unsplash 2025-12-10 # 抓取 Unsplash 指定日期
+```
+
+### GitHub Actions 部署
+
+1. **Fork 本仓库**
+
+2. **配置 GitHub Secrets**（Settings → Secrets and variables → Actions）:
+   - `WEWORK_WEBHOOK`: 企业微信群机器人 Webhook URL
+   - `LLM_API_KEY`: LLM API 密钥
+   - `LLM_BASE_URL`: LLM API 基础 URL
+   - `LLM_MODEL_NAME`: LLM 模型名称
+   - `UNSPLASH_ACCESS_KEY`: Unsplash API 访问密钥
+
+3. **启用 GitHub Pages**:
+   - Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `main` / `docs`
+
+4. **手动触发或等待定时任务**:
+   - Actions → Daily Wallpaper Fetch → Run workflow
+
+---
+
+## 📁 项目结构
+
+```
+DailyBingWallpaper/
+├── config/
+│   └── sources.yaml          # 数据源配置
+├── prompts/
+│   └── story_prompt.txt      # AI 提示词模板
+├── scripts/
+│   ├── fill_unsplash_dec.py  # Unsplash 数据补充脚本
+│   └── generate_missing_stories.py  # 异步故事生成脚本
+├── src/
+│   ├── config_loader.py      # 配置加载器
+│   ├── utils.py              # 企业微信推送工具
+│   ├── update_readme.py      # README 更新器
+│   └── update_gallery.py     # Gallery 更新器
+├── wallpapers/
+│   ├── bing/                 # Bing 壁纸存储
+│   │   └── YYYY-MM-DD/
+│   │       ├── image.jpg     # 高清原图
+│   │       ├── thumb.jpg     # 缩略图
+│   │       ├── meta.json     # 元数据
+│   │       └── story.md      # AI 故事
+│   └── unsplash/             # Unsplash 壁纸存储
+│       └── YYYY-MM-DD/
+│           ├── image.jpg
+│           ├── thumb.jpg
+│           ├── meta.json
+│           └── story.md
+├── docs/
+│   └── index.html            # GitHub Pages 画廊
+├── .github/workflows/
+│   └── daily.yml             # 自动化工作流
+├── fetch_bing_wallpaper.py   # Bing 抓取器
+├── fetch_unsplash_wallpaper.py # Unsplash 抓取器
+├── batch_fetch.py            # 批量抓取工具
+├── requirements.txt          # Python 依赖
+└── README.md                 # 项目文档
+```
+
+---
+
+## 🎯 使用说明
+
+### 异步故事生成
+
+为了提升用户体验，本项目采用异步架构：
+
+1. **快速模式**（默认推荐）:
+   ```bash
+   python fetch_bing_wallpaper.py --skip-story
+   ```
+   - 只下载图片和元数据
+   - 立即更新 README 和 Gallery
+   - 图片可立即查看
+
+2. **后台生成故事**:
+   ```bash
+   python scripts/generate_missing_stories.py
+   ```
+   - 扫描所有缺失故事的壁纸
+   - 批量调用 LLM 生成故事
+   - 自动更新元数据和页面
+
+### 批量抓取
+
+```bash
+# 抓取 Bing 壁纸
+python batch_fetch.py bing 2025-12        # 整月
+python batch_fetch.py bing 2025-12-10     # 指定日期
+
+# 抓取 Unsplash 壁纸
+python batch_fetch.py unsplash 2025-12    # 整月（多张当前精选）
+python batch_fetch.py unsplash 2025-12-10 # 指定日期
+
+# 源参数忽略大小写
+python batch_fetch.py BING 2025-12
+python batch_fetch.py Unsplash 2025-12-10
+```
+
+### 添加新数据源
+
+1. 编辑 `config/sources.yaml`:
+   ```yaml
+   sources:
+     - name: new_source
+       display_name: "新数据源 🎨"
+       enabled: true
+       api_key_env: "NEW_SOURCE_API_KEY"
+       fetcher_script: "fetch_new_source.py"
+   ```
+
+2. 创建 `fetch_new_source.py` 抓取脚本
+
+3. 运行测试并提交
 
 ---
 
@@ -112,6 +289,7 @@ python fetch_bing_wallpaper.py
 │   ├── utils.py         # 工具库 (WeChat 推送等)
 │   ├── update_readme.py # README 索引更新
 │   └── update_gallery.py# 画廊 HTML 更新
+├── batch_fetch.py # 批量下载脚本
 ├── fetch_bing_wallpaper.py # 主入口脚本
 └── README.md            # 项目文档
 ```

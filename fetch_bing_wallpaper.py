@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from PIL import Image
 
-from src.utils import send_image_to_wecom, send_markdown_to_wecom
+from src.utils import send_image_to_wecom, send_markdown_to_wecom, send_story_to_wecom
 from src.update_readme import update_readme
 from src.update_gallery import update_gallery
 
@@ -83,6 +83,13 @@ def generate_story(title, copyright, image_path: Path):
     if not api_key:
         return None
 
+    # 从外部文件加载提示词
+    prompt_file = Path(os.environ.get("STORY_PROMPT_FILE", "prompts/story_prompt.txt"))
+    if prompt_file.exists():
+        system_prompt = prompt_file.read_text(encoding="utf-8").strip()
+    else:
+        system_prompt =  "你是一位地理与文化深度旅行作家。请结合提供的图片内容、标题和背景信息，写一篇约 500 字的精美短文。要求：\n1. 直接输出 Markdown 正文，不要包含“好的”、“这是一篇...”等开头或结尾的客套话。\n2. 标题使用一级标题 (# Title)。\n3. 内容要包含对画面视觉细节（光影、色彩、构图）的细腻描写，并自然引出背后的地理文化故事。\n4. 语言风格优美、感性且富有深度。"
+    
     print(f"[INFO] 正在为 '{title}' 生成视觉深度故事...")
     try:
         # 读取图片并编码为 base64
@@ -99,7 +106,7 @@ def generate_story(title, copyright, image_path: Path):
             "messages": [
                 {
                     "role": "system", 
-                    "content": "你是一位地理与文化深度旅行作家。请结合提供的图片内容、标题和背景信息，写一篇约 500 字的精美短文。要求：\n1. 直接输出 Markdown 正文，不要包含“好的”、“这是一篇...”等开头或结尾的客套话。\n2. 标题使用一级标题 (# Title)。\n3. 内容要包含对画面视觉细节（光影、色彩、构图）的细腻描写，并自然引出背后的地理文化故事。\n4. 语言风格优美、感性且富有深度。"
+                    "content": system_prompt
                 },
                 {
                     "role": "user",
@@ -124,48 +131,78 @@ def generate_story(title, copyright, image_path: Path):
         result = resp.json()
         story_text = result["choices"][0]["message"]["content"]
         
-        # 在文章头部插入原图展示
-        final_content = f"![{title}](bing.jpg)\n\n{story_text}"
+        # 在文章头部插入原图展示（根据图片文件名动态调整）
+        image_filename = image_path.name  # 获取实际文件名
+        final_content = f"![{title}]({image_filename})\n\n{story_text}"
         return final_content
     except Exception as e:
         print(f"[WARN] 视觉故事生成失败: {e}")
         return None
 
 
-def push_to_wecom(webhook_url: str, image_path: Path, meta: dict):
-    """推送图片和消息到企业微信"""
+def push_to_wecom(webhook_url: str, image_path: Path, meta: dict, story_content: str = None):
+    """推送图片、消息和故事到企业微信"""
     try:
-        # 先发送图片
+        # 1. 发送图片
         send_image_to_wecom(webhook_url, str(image_path))
         print("[OK] 企业微信图片推送成功")
 
-        # 再发送 markdown 消息
+        # 2. 发送 markdown 消息（元数据）
         send_markdown_to_wecom(webhook_url, meta)
         print("[OK] 企业微信消息推送成功")
+        
+        # 3. 发送故事内容（如果存在）
+        if story_content:
+            send_story_to_wecom(webhook_url, meta, story_content)
+            print("[OK] 企业微信故事推送成功")
     except Exception as e:
         print(f"[WARN] 企业微信推送失败: {e}")
 
 
 def main():
+    # 解析命令行参数
+    parser = argparse.ArgumentParser(description='抓取必应每日壁纸')
+    parser.add_argument('--skip-story', action='store_true', help='跳过 AI 故事生成（快速模式）')
+    args = parser.parse_args()
+    
     load_env()
 
-    # 1. 获取元数据
+    # 1. 获取元数据（尝试今天，如果不存在则使用昨天）
     print(f"[INFO] 正在获取必应壁纸...")
-    meta = fetch_bing_metadata()
     
-    # 使用 API 返回的日期作为文件夹名
-    today = get_date_from_meta(meta)
+    for idx in [0, 1]:  # 0=今天, 1=昨天
+        params = {
+            "format": "js",
+            "idx": idx,
+            "n": 1,
+            "mkt": "zh-CN"
+        }
+        resp = requests.get(BING_API, params=params, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        meta = data["images"][0]
+        
+        # 使用 API 返回的日期作为文件夹名
+        today = get_date_from_meta(meta)
+        base_dir = Path("wallpapers/bing") / today
+        
+        # 如果该日期的壁纸已存在，跳过
+        if base_dir.exists() and (base_dir / "image.jpg").exists():
+            if idx == 0:
+                print(f"[INFO] {today} 的壁纸已存在，不再重复下载。")
+                return
+            else:
+                continue  # 尝试下一个
+        
+        # 找到可用的壁纸，跳出循环
+        print(f"[INFO] 使用 {today} 的壁纸（idx={idx}）")
+        break
     
-    base_dir = Path("wallpapers") / today
-    if base_dir.exists() and (base_dir / "bing.jpg").exists():
-        print(f"[INFO] {today} 的壁纸已存在，不再重复下载。")
-        return
-
     base_dir.mkdir(parents=True, exist_ok=True)
 
     # 2. 下载原图
     image_url = BING_BASE + meta["url"]
-    image_path = base_dir / "bing.jpg"
+    image_path = base_dir / "image.jpg"
     download_image(image_url, image_path)
     print(f"[OK] 壁纸已下载: {image_path} ({meta.get('title')})")
 
@@ -174,11 +211,15 @@ def main():
     generate_thumbnail(image_path, thumb_path)
     print(f"[OK] 缩略图已生成: {thumb_path}")
 
-    # 4. 生成 AI 故事 (带视觉)
-    story_content = generate_story(meta.get("title"), meta.get("copyright"), image_path)
-    if story_content:
-        (base_dir / "story.md").write_text(story_content, encoding="utf-8")
-        print(f"[OK] AI 故事已生成: {base_dir / 'story.md'}")
+    # 4. 生成 AI 故事 (带视觉) - 可选
+    story_content = None
+    if not args.skip_story:
+        story_content = generate_story(meta.get("title"), meta.get("copyright"), image_path)
+        if story_content:
+            (base_dir / "story.md").write_text(story_content, encoding="utf-8")
+            print(f"[OK] AI 故事已生成: {base_dir / 'story.md'}")
+    else:
+        print(f"[INFO] 跳过故事生成（使用 --skip-story）")
 
     # 5. 保存元数据
     meta_path = base_dir / "meta.json"
@@ -206,7 +247,7 @@ def main():
     # 8. 推送企业微信
     webhook_url = os.environ.get("WEWORK_WEBHOOK")
     if webhook_url:
-        push_to_wecom(webhook_url, image_path, meta_info)
+        push_to_wecom(webhook_url, image_path, meta_info, story_content)
     else:
         print("[INFO] WEWORK_WEBHOOK 未配置，跳过推送")
 

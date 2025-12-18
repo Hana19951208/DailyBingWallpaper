@@ -23,7 +23,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests Pillow
+        run: pip install -r requirements.txt
 
       - name: Fetch Bing wallpaper
         env:
@@ -32,6 +32,15 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL_NAME: ${{ secrets.LLM_MODEL_NAME }}
         run: python fetch_bing_wallpaper.py
+
+      - name: Fetch Unsplash wallpaper
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL_NAME: ${{ secrets.LLM_MODEL_NAME }}
+          WEWORK_WEBHOOK: ${{ secrets.WEWORK_WEBHOOK }}
+        run: python fetch_unsplash_wallpaper.py
 
       - name: Commit and push
         run: |

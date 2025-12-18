@@ -1,0 +1,16 @@
+sources:
+  - name: bing
+    display_name: "Bing 🔍"
+    enabled: true
+    api_endpoint: "https://www.bing.com/HPImageArchive.aspx"
+    fetcher_script: "fetch_bing_wallpaper.py"
+    
+  - name: unsplash
+    display_name: "Unsplash 📷"
+    enabled: true  # 已实现，可启用
+    api_key_env: "UNSPLASH_ACCESS_KEY"
+    fetcher_script: "fetch_unsplash_wallpaper.py"
+
+display:
+  max_items_per_source: 10  # 每个源最多展示 10 天
+  columns: auto  # auto 或固定数字，auto 根据启用源数量自动调整
