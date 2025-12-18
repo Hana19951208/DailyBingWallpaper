@@ -9,7 +9,8 @@
 
 ## ✨ 项目特性
 
-- **自动化**: 利用 GitHub Actions 每天北京时间 08:00 自动抓取。
+- **自动化**: 利用 GitHub Actions 每小时自动检测更新。
+- **AI 故事**: 集成 LLM 视觉大模型，自动为壁纸生成精美的地理文化背景故事。
 - **持久化**: 高清原图、缩略图及元数据 (JSON) 自动提交至仓库，永不丢失。
 - **现代化展示**: 内置 GitHub Pages 在线画廊，支持响应式布局与暗黑模式。
 - **多端推送**: 集成企业微信群机器人，消息样式精美。
@@ -21,15 +22,50 @@
 
 ### 在线画廊
 
-![Gallery Screenshot](https://via.placeholder.com/800x400.png?text=Preview+of+Glassmorphism+Gallery)
+![Gallery Screenshot](docs/preview.png)
+
+### AI 故事 (点击标题阅读)
+点击壁纸索引中的标题，即可跳转阅读由 AI 生成的背景故事（包含原图展示）。
 
 ---
 
 ## 📅 壁纸索引 (最新)
 
 <!-- WALLPAPER_INDEX_START -->
-- **2025-12-18**  
-  ![](wallpapers/2025-12-18/thumb.jpg)
+<table width="100%">
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-17/bing.jpg"><img src="wallpapers/2025-12-17/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-17</b><br /><small>犹他州的时光层叠</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-16/bing.jpg"><img src="wallpapers/2025-12-16/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-16</b><br /><small>皮毛、霜冻和盛宴</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-15/bing.jpg"><img src="wallpapers/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-15</b><br /><small>小帽子，大能量</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-14/bing.jpg"><img src="wallpapers/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-14</b><br /><small>静谧水波，闪耀灯影</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-13/bing.jpg"><img src="wallpapers/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-13</b><br /><small>假日鸟类大比拼</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-12/bing.jpg"><img src="wallpapers/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-12</b><br /><small>冰封的倒影</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-11/bing.jpg"><img src="wallpapers/2025-12-11/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-11</b><br /><small>点亮节日的红色植物</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-10/bing.jpg"><img src="wallpapers/2025-12-10/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-10</b><br /><small>天地相接之处</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-09/bing.jpg"><img src="wallpapers/2025-12-09/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-09</b><br /><small>文化交汇之地</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-08/bing.jpg"><img src="wallpapers/2025-12-08/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-08</b><br /><small>说“茄子”……或者“青草”</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-07/bing.jpg"><img src="wallpapers/2025-12-07/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-07</b><br /><small>一切安详，一切明亮</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-06/bing.jpg"><img src="wallpapers/2025-12-06/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-06</b><br /><small>雪落下的声音</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-05/bing.jpg"><img src="wallpapers/2025-12-05/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-05</b><br /><small>佛罗里达州的生命湿地</small></td>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-04/bing.jpg"><img src="wallpapers/2025-12-04/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-04</b><br /><small>绘制星图的城市</small></td>
+</tr>
+<tr>
+<td width="50%" align="center" valign="top"><a href="wallpapers/2025-12-03/bing.jpg"><img src="wallpapers/2025-12-03/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><b>2025-12-03</b><br /><small>为生存而疾驰</small></td>
+<td width="50%"></td>
+</tr>
+</table>
 <!-- WALLPAPER_INDEX_END -->
 
 ---

@@ -35,12 +35,20 @@ def update_gallery():
             except Exception:
                 pass
 
+        # 标题显示与 AI 故事链接
+        story_path = base / d / "story.md"
+        story_url = f"../wallpapers/{d}/story.md"
+        
+        title_html = f'<span class="title">{title}</span>'
+        if story_path.exists():
+            title_html = f'<a href="{story_url}" class="story-link"><span class="title">{title} 📖</span></a>'
+
         cards.append(f'''        <div class="card">
             <a href="{img}" target="_blank">
                 <img src="{thumb}" alt="{title}" loading="lazy">
             </a>
             <p>{d}</p>
-            <span class="title">{title}</span>
+            {title_html}
         </div>''')
 
     gallery_content = "\n".join(cards)

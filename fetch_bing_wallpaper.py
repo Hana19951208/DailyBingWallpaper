@@ -10,6 +10,7 @@
 
 import os
 import json
+import base64
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,9 +36,12 @@ def load_env():
                 os.environ[key.strip()] = value.strip()
 
 
-def get_today_str():
-    """获取今日日期字符串 (UTC)"""
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def get_date_from_meta(meta):
+    """从元数据获取日期字符串 (YYYY-MM-DD)"""
+    start_date = meta.get("startdate")
+    if not start_date:
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return f"{start_date[:4]}-{start_date[4:6]}-{start_date[6:8]}"
 
 
 def fetch_bing_metadata():
@@ -65,7 +69,67 @@ def generate_thumbnail(image_path: Path, thumb_path: Path):
     """生成缩略图"""
     with Image.open(image_path) as img:
         img.thumbnail(THUMB_SIZE, Image.Resampling.LANCZOS)
+        # 确保目录存在 (为了 batch_fetch)
+        thumb_path.parent.mkdir(parents=True, exist_ok=True)
         img.save(thumb_path, "JPEG", quality=85)
+
+
+def generate_story(title, copyright, image_path: Path):
+    """通过支持视觉的 LLM 生成壁纸背景故事"""
+    api_key = os.environ.get("LLM_API_KEY")
+    base_url = os.environ.get("LLM_BASE_URL", "https://api.openai.com/v1")
+    model_name = os.environ.get("LLM_MODEL_NAME", "gpt-4o") # 默认尝试视觉模型
+    
+    if not api_key:
+        return None
+
+    print(f"[INFO] 正在为 '{title}' 生成视觉深度故事...")
+    try:
+        # 读取图片并编码为 base64
+        with open(image_path, "rb") as image_file:
+            base64_image = base64.b64encode(image_file.read()).decode('utf-8')
+
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+        
+        payload = {
+            "model": model_name,
+            "messages": [
+                {
+                    "role": "system", 
+                    "content": "你是一位地理与文化深度旅行作家。请结合提供的图片内容、标题和背景信息，写一篇约 500 字的精美短文。要求：\n1. 直接输出 Markdown 正文，不要包含“好的”、“这是一篇...”等开头或结尾的客套话。\n2. 标题使用一级标题 (# Title)。\n3. 内容要包含对画面视觉细节（光影、色彩、构图）的细腻描写，并自然引出背后的地理文化故事。\n4. 语言风格优美、感性且富有深度。"
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": f"题目：{title}\n背景项：{copyright}\n请结合这张图片进行创作。"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "max_tokens": 1000
+        }
+        resp = requests.post(f"{base_url}/chat/completions", headers=headers, json=payload, timeout=90)
+        resp.raise_for_status()
+        result = resp.json()
+        story_text = result["choices"][0]["message"]["content"]
+        
+        # 在文章头部插入原图展示
+        final_content = f"![{title}](bing.jpg)\n\n{story_text}"
+        return final_content
+    except Exception as e:
+        print(f"[WARN] 视觉故事生成失败: {e}")
+        return None
 
 
 def push_to_wecom(webhook_url: str, image_path: Path, meta: dict):
@@ -84,32 +148,46 @@ def push_to_wecom(webhook_url: str, image_path: Path, meta: dict):
 
 def main():
     load_env()
-    today = get_today_str()
-    base_dir = Path("wallpapers") / today
-    base_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. 获取元数据
-    print(f"[INFO] 正在获取 {today} 的必应壁纸...")
+    print(f"[INFO] 正在获取必应壁纸...")
     meta = fetch_bing_metadata()
+    
+    # 使用 API 返回的日期作为文件夹名
+    today = get_date_from_meta(meta)
+    
+    base_dir = Path("wallpapers") / today
+    if base_dir.exists() and (base_dir / "bing.jpg").exists():
+        print(f"[INFO] {today} 的壁纸已存在，不再重复下载。")
+        return
+
+    base_dir.mkdir(parents=True, exist_ok=True)
 
     # 2. 下载原图
     image_url = BING_BASE + meta["url"]
     image_path = base_dir / "bing.jpg"
     download_image(image_url, image_path)
-    print(f"[OK] 壁纸已下载: {image_path}")
+    print(f"[OK] 壁纸已下载: {image_path} ({meta.get('title')})")
 
     # 3. 生成缩略图
     thumb_path = base_dir / "thumb.jpg"
     generate_thumbnail(image_path, thumb_path)
     print(f"[OK] 缩略图已生成: {thumb_path}")
 
-    # 4. 保存元数据
+    # 4. 生成 AI 故事 (带视觉)
+    story_content = generate_story(meta.get("title"), meta.get("copyright"), image_path)
+    if story_content:
+        (base_dir / "story.md").write_text(story_content, encoding="utf-8")
+        print(f"[OK] AI 故事已生成: {base_dir / 'story.md'}")
+
+    # 5. 保存元数据
     meta_path = base_dir / "meta.json"
     meta_info = {
         "date": today,
         "title": meta.get("title"),
         "copyright": meta.get("copyright"),
-        "image_url": image_url
+        "image_url": image_url,
+        "has_story": bool(story_content)
     }
     meta_path.write_text(
         json.dumps(meta_info, ensure_ascii=False, indent=2),
@@ -117,20 +195,20 @@ def main():
     )
     print(f"[OK] 元数据已保存: {meta_path}")
 
-    # 5. 更新 README
+    # 6. 更新 README
     update_readme()
     print("[OK] README.md 已更新")
 
-    # 6. 更新 Gallery
+    # 7. 更新 Gallery
     update_gallery()
     print("[OK] docs/index.html 已更新")
 
-    # 7. 推送企业微信
+    # 8. 推送企业微信
     webhook_url = os.environ.get("WEWORK_WEBHOOK")
     if webhook_url:
         push_to_wecom(webhook_url, image_path, meta_info)
     else:
-        print("[INFO] WEWORK_WEBHOOK 未配置，跳过企业微信推送")
+        print("[INFO] WEWORK_WEBHOOK 未配置，跳过推送")
 
     print(f"\n✅ 完成！壁纸已归档至 {base_dir}")
 

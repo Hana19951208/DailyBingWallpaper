@@ -2,8 +2,8 @@ name: Daily Bing Wallpaper
 
 on:
   schedule:
-    # 每天北京时间 8:00（UTC 00:00）
-    - cron: "0 0 * * *"
+    # 每小时运行一次 (UTC)，以便在必应更新后第一时间抓取
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -28,6 +28,9 @@ jobs:
       - name: Fetch Bing wallpaper
         env:
           WEWORK_WEBHOOK: ${{ secrets.WEWORK_WEBHOOK }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL_NAME: ${{ secrets.LLM_MODEL_NAME }}
         run: python fetch_bing_wallpaper.py
 
       - name: Commit and push
