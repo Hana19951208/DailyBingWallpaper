@@ -117,14 +117,25 @@ def update_readme():
     
     index_block = "\n".join(html_output)
     
-    # 读取并更新 README
-    readme_content = readme_path.read_text(encoding="utf-8")
-    pattern = r"(<!-- WALLPAPER_INDEX_START -->)[\s\S]*?(<!-- WALLPAPER_INDEX_END -->)"
-    replacement = f"\\1\n{index_block}\n\\2"
-    new_content = re.sub(pattern, replacement, readme_content)
-    readme_path.write_text(new_content, encoding="utf-8")
+    # 需要更新的文件列表
+    readme_files = [Path("README.md"), Path("README_EN.md")]
+    
+    for readme_path in readme_files:
+        if not readme_path.exists():
+            print(f"[WARN] {readme_path} 不存在，跳过")
+            continue
+            
+        # 读取并更新 README
+        try:
+            readme_content = readme_path.read_text(encoding="utf-8")
+            pattern = r"(<!-- WALLPAPER_INDEX_START -->)[\s\S]*?(<!-- WALLPAPER_INDEX_END -->)"
+            replacement = f"\\1\n{index_block}\n\\2"
+            new_content = re.sub(pattern, replacement, readme_content)
+            readme_path.write_text(new_content, encoding="utf-8")
+            print(f"[OK] {readme_path} 已更新")
+        except Exception as e:
+            print(f"[ERROR] 更新 {readme_path} 失败: {e}")
 
 
 if __name__ == "__main__":
     update_readme()
-    print("[OK] README.md 已更新 (多源模式)")
