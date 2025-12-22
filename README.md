@@ -42,6 +42,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2025-12-22</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-22/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-22/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-22/story.md"><small>Image taken above the Small Cauldron of the Danube. It is situated between the Romanian and Serbian boarder (Serbia on the right and Romania on the left). 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2025-12-21</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-21/image.jpg"><img src="docs/wallpapers/bing/2025-12-21/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-21/story.md"><small>历史与现代的交融 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-21/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-21/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-21/story.md"><small>a house in the middle of a mountain range 📖</small></a></td>
@@ -85,11 +90,6 @@
 <td align="center"><b>2025-12-13</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-13/image.jpg"><img src="docs/wallpapers/bing/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-13/story.md"><small>假日鸟类大比拼 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-13/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-13/story.md"><small>We could take a 5-minute walk from our Airbnb to visit the Banasura Sagar lake. It was a routine on most evenings. And during sunset, along with the mist, the mountains, and calm water, it would form the most beautiful and picturesque moment.  📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-12</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-12/image.jpg"><img src="docs/wallpapers/bing/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-12/story.md"><small>冰封的倒影 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-12/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-12/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-12/story.md"><small>a field with tall grass and trees in the background 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
