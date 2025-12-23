@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2025-12-23</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-23/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-23/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-23/story.md"><small>lake in the middle of mountains during daytime 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2025-12-22</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-22/image.jpg"><img src="docs/wallpapers/bing/2025-12-22/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-22/story.md"><small>当节日的魔法踩着蹄声而来 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-22/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-22/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-22/story.md"><small>Image taken above the Small Cauldron of the Danube. It is situated between the Romanian and Serbian boarder (Serbia on the right and Romania on the left). 📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-14</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-14/image.jpg"><img src="docs/wallpapers/bing/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-14/story.md"><small>静谧水波，闪耀灯影 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-14/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-14/story.md"><small>brown mountains under white clouds during daytime 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-13</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-13/image.jpg"><img src="docs/wallpapers/bing/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-13/story.md"><small>假日鸟类大比拼 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-13/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-13/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-13/story.md"><small>We could take a 5-minute walk from our Airbnb to visit the Banasura Sagar lake. It was a routine on most evenings. And during sunset, along with the mist, the mountains, and calm water, it would form the most beautiful and picturesque moment.  📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
