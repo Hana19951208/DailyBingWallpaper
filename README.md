@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2025-12-24</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-24/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-24/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-24/story.md"><small>a view of a town from a hill with a plant in the foreground 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2025-12-23</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-23/image.jpg"><img src="docs/wallpapers/bing/2025-12-23/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-23/story.md"><small>流动的传统 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-23/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-23/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-23/story.md"><small>lake in the middle of mountains during daytime 📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-15</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-15/image.jpg"><img src="docs/wallpapers/bing/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-15/story.md"><small>小帽子，大能量 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-15/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-15/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-15/story.md"><small>a rock in the middle of a body of water 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-14</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-14/image.jpg"><img src="docs/wallpapers/bing/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-14/story.md"><small>静谧水波，闪耀灯影 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-14/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-14/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-14/story.md"><small>brown mountains under white clouds during daytime 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
