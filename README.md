@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2025-12-28</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-28/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-28/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-28/story.md"><small>a large rock in the middle of a desert 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2025-12-27</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-27/image.jpg"><img src="docs/wallpapers/bing/2025-12-27/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-27/story.md"><small>仍存野性 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-27/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-27/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-27/story.md"><small>a pond with a waterfall in the middle of it 📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-19</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-19/image.jpg"><img src="docs/wallpapers/bing/2025-12-19/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-19/story.md"><small>闪烁的纸星星 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-19/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-19/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-19/story.md"><small>man in yellow and black jacket standing on snow covered ground during daytime 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-18</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-18/image.jpg"><img src="docs/wallpapers/bing/2025-12-18/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-18/story.md"><small>高山的悠久历史 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-18/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-18/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-18/story.md"><small>a view of the mountains from the top of a hill 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
