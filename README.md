@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2025-12-31</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-31/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-31/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-31/story.md"><small>gray concrete bridge over river under cloudy sky during daytime 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2025-12-30</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-30/image.jpg"><img src="docs/wallpapers/bing/2025-12-30/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-30/story.md"><small>柏林，新年之桥 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-30/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-30/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-30/story.md"><small>a scenic view of a valley with trees in the foreground 📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-22</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-22/image.jpg"><img src="docs/wallpapers/bing/2025-12-22/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-22/story.md"><small>当节日的魔法踩着蹄声而来 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-22/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-22/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-22/story.md"><small>Image taken above the Small Cauldron of the Danube. It is situated between the Romanian and Serbian boarder (Serbia on the right and Romania on the left). 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-21</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-21/image.jpg"><img src="docs/wallpapers/bing/2025-12-21/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-21/story.md"><small>历史与现代的交融 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-21/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-21/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-21/story.md"><small>a house in the middle of a mountain range 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
