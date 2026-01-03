@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2026-01-03</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2026-01-03/image.jpg"><img src="docs/wallpapers/unsplash/2026-01-03/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2026-01-03/story.md"><small>Nature trail surrounded by trees.  📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2026-01-02</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2026-01-02/image.jpg"><img src="docs/wallpapers/bing/2026-01-02/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2026-01-02/story.md"><small>传奇故事前的篇章 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2026-01-02/image.jpg"><img src="docs/wallpapers/unsplash/2026-01-02/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2026-01-02/story.md"><small>A dirt road in front of a snow covered mountain 📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-25</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-25/image.jpg"><img src="docs/wallpapers/bing/2025-12-25/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-25/story.md"><small>打破盒子的传统 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-25/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-25/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-25/story.md"><small>man in brown jacket standing on brown grass field during daytime 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-24</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-24/image.jpg"><img src="docs/wallpapers/bing/2025-12-24/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-24/story.md"><small>微缩世界，无尽奇想 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-24/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-24/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-24/story.md"><small>a view of a town from a hill with a plant in the foreground 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
