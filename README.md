@@ -43,6 +43,11 @@
 <table width="100%">
 <tr><th width="15%">日期</th><th width="42%">Bing 🔍</th><th width="42%">Unsplash 📷</th></tr>
 <tr>
+<td align="center"><b>2026-01-04</b></td>
+<td align="center" valign="top"><small>-</small></td>
+<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2026-01-04/image.jpg"><img src="docs/wallpapers/unsplash/2026-01-04/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2026-01-04/story.md"><small>snow covered mountain under starry night 📖</small></a></td>
+</tr>
+<tr>
 <td align="center"><b>2026-01-03</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2026-01-03/image.jpg"><img src="docs/wallpapers/bing/2026-01-03/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2026-01-03/story.md"><small>王者视野 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2026-01-03/image.jpg"><img src="docs/wallpapers/unsplash/2026-01-03/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2026-01-03/story.md"><small>Nature trail surrounded by trees.  📖</small></a></td>
@@ -86,11 +91,6 @@
 <td align="center"><b>2025-12-26</b></td>
 <td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-26/image.jpg"><img src="docs/wallpapers/bing/2025-12-26/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-26/story.md"><small>冬之碎片 📖</small></a></td>
 <td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-26/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-26/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-26/story.md"><small>A large rock formation in the middle of a desert 📖</small></a></td>
-</tr>
-<tr>
-<td align="center"><b>2025-12-25</b></td>
-<td align="center" valign="top"><a href="docs/wallpapers/bing/2025-12-25/image.jpg"><img src="docs/wallpapers/bing/2025-12-25/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/bing/2025-12-25/story.md"><small>打破盒子的传统 📖</small></a></td>
-<td align="center" valign="top"><a href="docs/wallpapers/unsplash/2025-12-25/image.jpg"><img src="docs/wallpapers/unsplash/2025-12-25/thumb.jpg" width="100%" style="border-radius:10px;"></a><br /><a href="docs/wallpapers/unsplash/2025-12-25/story.md"><small>man in brown jacket standing on brown grass field during daytime 📖</small></a></td>
 </tr>
 </table>
 <!-- WALLPAPER_INDEX_END -->
